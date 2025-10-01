@@ -14,5 +14,17 @@
     "helmet": "^7.1.0",
     "jose": "^5.2.4",
     "morgan": "^1.10.0"
-  }
+  },
+  "main": "auth.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jp-rco/patrones2P.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jp-rco/patrones2P/issues"
+  },
+  "homepage": "https://github.com/jp-rco/patrones2P#readme"
 }

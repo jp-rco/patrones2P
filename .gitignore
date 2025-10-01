@@ -1,0 +1,31 @@
+# --- Node.js ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# --- Entorno ---
+.env
+
+# --- Certificados y llaves ---
+*.pem
+*.crt
+*.key
+
+# --- Sistema / OS ---
+.DS_Store
+Thumbs.db
+
+# --- VSCode ---
+.vscode/
+.history/
+
+# --- Archivos temporales ---
+*.log
+*.tmp
+*.swp
+
+# --- Producción / builds (si usas en algún momento) ---
+dist/
+build/
