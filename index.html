@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>OAuth2 Parcial - Demo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <h1>Parcial OAuth2 - Client Credentials & Password + Refresh</h1>
+
+  <section>
+    <h2>1) Login (Password Grant + Refresh)</h2>
+    <div class="row">
+      <label>client_id</label><input id="fcid" placeholder="frontend-client" value="frontend-client">
+      <label>client_secret</label><input id="fsec" placeholder="(pega aquí el secret de frontend)" type="password">
+      <label>username</label><input id="user" placeholder="alice" value="alice">
+      <label>password</label><input id="pass" placeholder="alice123" type="password" value="alice123">
+      <label>scope</label><input id="fscopes" placeholder="user.read user.write" value="user.read user.write">
+    </div>
+    <button id="btn-login">Obtener access_token</button>
+    <button id="btn-refresh" disabled>Renovar con refresh_token</button>
+
+    <pre id="login-out"></pre>
+  </section>
+
+  <section>
+    <h2>2) Consumir API protegida (con tu access_token)</h2>
+    <div class="row">
+      <label>access_token</label><input id="atk" placeholder="pega aquí tu token si no usaste el paso 1">
+    </div>
+    <div class="row">
+      <button id="btn-user-get">GET /api/user (user.read)</button>
+      <button id="btn-user-post">POST /api/user (user.write)</button>
+    </div>
+    <pre id="api-out"></pre>
+  </section>
+
+  <section>
+    <h2>3) Client Credentials (microservicio)</h2>
+    <p>Para pruebas rápidas desde el navegador:</p>
+    <div class="row">
+      <label>client_id</label><input id="scid" placeholder="service-client" value="service-client">
+      <label>client_secret</label><input id="ssec" placeholder="(secret de service-client)" type="password">
+      <label>scope</label><input id="sscopes" placeholder="service.read" value="service.read">
+    </div>
+    <button id="btn-cc">Obtener token (client_credentials) y llamar GET /api/service</button>
+    <pre id="cc-out"></pre>
+  </section>
+
+  <script src="./client.js"></script>
+</body>
+</html>
