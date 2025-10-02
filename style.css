@@ -1,8 +1,0 @@
-body { font-family: system-ui, Arial, sans-serif; margin: 20px; line-height: 1.35; }
-h1 { margin-bottom: 8px; }
-section { border: 1px solid #ddd; padding: 12px; border-radius: 8px; margin: 16px 0; }
-.row { display: grid; grid-template-columns: 140px 1fr; gap: 6px 10px; align-items: center; max-width: 800px; }
-input { padding: 6px 8px; border: 1px solid #ccc; border-radius: 6px; }
-button { margin: 8px 8px 8px 0; padding: 8px 12px; }
-pre { background: #f7f7f7; padding: 8px; border-radius: 6px; overflow: auto; }
-label { color: #333; }

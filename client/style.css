@@ -1,0 +1,167 @@
+/* ====== Modo oscuro sobrio ====== */
+:root{
+  --bg: #0f1115;         /* fondo principal */
+  --surface: #141821;    /* tarjetas */
+  --surface-2: #0f141b;  /* sutil contraste */
+  --line: #232936;       /* bordes */
+  --text: #e3e6eb;       /* texto principal */
+  --muted: #9aa3b2;      /* texto secundario */
+  --accent: #6d8dad;     /* azul grisáceo (sobrio) */
+
+  --shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+
+*{ box-sizing: border-box; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  font: 15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ====== Layout ====== */
+.app{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px clamp(16px, 3vw, 28px);
+}
+
+.header{
+  padding: 8px 0 16px;
+  text-align: center;
+}
+.header h1{
+  margin:0;
+  font-weight:800;
+  letter-spacing:.2px;
+  font-size: clamp(22px, 2.4vw, 32px);
+  color: var(--text);
+}
+.subtitle{
+  margin-top:6px;
+  color: var(--muted);
+  font-size: .98rem;
+}
+
+.content{
+  display: grid;
+  gap: 18px;
+}
+
+/* ====== Cards ====== */
+.card{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: clamp(16px, 2.2vw, 22px);
+  box-shadow: var(--shadow);
+}
+.section-title{
+  margin:0 0 10px 0;
+  font-size: clamp(18px, 2vw, 22px);
+}
+
+/* ====== Form grid ====== */
+.row{
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 10px 14px;
+  align-items: center;
+  max-width: 860px;
+  margin-top: 10px;
+}
+@media (max-width: 720px){
+  .row{ grid-template-columns: 1fr; }
+  .row label{ margin-top: 8px; }
+}
+
+/* ====== Labels & inputs ====== */
+label{
+  color: var(--muted);
+  font-size: .92rem;
+}
+input{
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--text);
+  outline: none;
+  transition: border-color .15s ease, box-shadow .2s ease, transform .06s ease;
+}
+input::placeholder{ color: #7f8a9b; }
+input:focus{
+  border-color: color-mix(in oklab, var(--accent) 65%, var(--line));
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 20%, transparent);
+}
+
+/* ====== Buttons ====== */
+.actions{ margin-top: 14px; display:flex; flex-wrap:wrap; gap:10px; }
+
+.btn{
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, opacity .2s ease;
+  box-shadow: var(--shadow);
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn:active{ transform: translateY(0); }
+.btn[disabled]{ opacity:.55; cursor:not-allowed; }
+
+.btn.primary{
+  border-color: color-mix(in oklab, var(--accent) 55%, var(--line));
+  background: color-mix(in oklab, var(--accent) 28%, var(--surface-2));
+}
+.btn.primary:hover{
+  box-shadow: 0 8px 20px rgba(109,141,173,.20);
+}
+
+.btn.ghost{
+  background: transparent;
+  border-color: var(--line);
+}
+
+/* ====== Output blocks ====== */
+.codeblock,
+pre{
+  margin-top: 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  overflow: auto;
+  font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size: .92rem;
+  color: var(--text);
+  max-height: 360px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+/* ====== Helpers ====== */
+.hint{ margin:0 0 10px 0; color: var(--muted); font-size: .95rem; }
+.footer{ text-align:center; margin-top:10px; color: var(--muted); }
+
+/* Accesibilidad al tabular */
+:focus-visible{
+  outline: 3px solid color-mix(in oklab, var(--accent) 55%, transparent);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Scrollbar sutil */
+*::-webkit-scrollbar{ height:10px; width:10px; }
+*::-webkit-scrollbar-thumb{
+  background: #2a3240;
+  border-radius: 10px;
+  border: 2px solid var(--surface-2);
+}
+*::-webkit-scrollbar-track{ background: var(--surface); }

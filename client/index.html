@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>OAuth2 Parcial - Demo</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0f1115" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Parcial OAuth2</h1>
+      <p class="subtitle">Client Credentials &amp; Password + Refresh</p>
+    </header>
+
+    <main class="content">
+      <!-- 1) LOGIN -->
+      <section class="card">
+        <h2 class="section-title">1) Login (Password Grant + Refresh)</h2>
+
+        <div class="row">
+          <label for="fcid">client_id</label>
+          <input id="fcid" placeholder="frontend-client" value="frontend-client" />
+
+          <label for="fsec">client_secret</label>
+          <input id="fsec" placeholder="(pega aquí el secret de frontend)" type="password" />
+
+          <label for="user">username</label>
+          <input id="user" placeholder="alice" value="alice" />
+
+          <label for="pass">password</label>
+          <input id="pass" placeholder="alice123" type="password" value="alice123" />
+
+          <label for="fscopes">scope</label>
+          <input id="fscopes" placeholder="user.read user.write" value="user.read user.write" />
+        </div>
+
+        <div class="actions">
+          <button id="btn-login" class="btn primary">Obtener access_token</button>
+          <button id="btn-refresh" class="btn" disabled>Renovar con refresh_token</button>
+        </div>
+
+        <pre id="login-out" class="codeblock" aria-live="polite"></pre>
+      </section>
+
+      <!-- 2) API PROTEGIDA -->
+      <section class="card">
+        <h2 class="section-title">2) Consumir API protegida (con tu access_token)</h2>
+
+        <div class="row">
+          <label for="atk">access_token</label>
+          <input id="atk" placeholder="pega aquí tu token si no usaste el paso 1" />
+        </div>
+
+        <div class="actions">
+          <button id="btn-user-get" class="btn ghost">GET /api/user (user.read)</button>
+          <button id="btn-user-post" class="btn ghost">POST /api/user (user.write)</button>
+        </div>
+
+        <pre id="api-out" class="codeblock" aria-live="polite"></pre>
+      </section>
+
+      <!-- 3) CLIENT CREDENTIALS -->
+      <section class="card">
+        <h2 class="section-title">3) Client Credentials (microservicio)</h2>
+        <p class="hint">Para pruebas rápidas desde el navegador:</p>
+
+        <div class="row">
+          <label for="scid">client_id</label>
+          <input id="scid" placeholder="service-client" value="service-client" />
+
+          <label for="ssec">client_secret</label>
+          <input id="ssec" placeholder="(secret de service-client)" type="password" />
+
+          <label for="sscopes">scope</label>
+          <input id="sscopes" placeholder="service.read" value="service.read" />
+        </div>
+
+        <div class="actions">
+          <button id="btn-cc" class="btn primary">Obtener token (client_credentials) y llamar GET /api/service</button>
+        </div>
+
+        <pre id="cc-out" class="codeblock" aria-live="polite"></pre>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>Demo educativa OAuth2</small>
+    </footer>
+  </div>
+
+  <script src="./client.js"></script>
+</body>
+</html>
