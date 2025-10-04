@@ -1,6 +1,7 @@
 
 
 # Parcial 2 – OAuth2 con Keycloak, Node.js y API protegida
+#Andrés Ricaurte - Juan Restrepo
 
 Este proyecto implementa un Authorization Server con Keycloak y un API protegido en Node.js (Express) sobre HTTPS, cumpliendo los requisitos del parcial:
 
