@@ -1,4 +1,4 @@
-¡Entendido! 🙌 Aquí tienes el **README.md** en un solo formato uniforme (sin bloques de `bash` ni diferencias de estilo). Todo estará en **Markdown plano** con secciones y ejemplos en JSON cuando sea necesario, para que copies y pegues directamente.
+
 
 # Parcial 2 – OAuth2 con Keycloak, Node.js y API protegida
 
